@@ -1,0 +1,12 @@
+{%extends "app/base.html" %}
+{% load static %}
+
+{%load thumbnail %}
+{% load django_tables2 %}
+{% block content_title %} List Content {% endblock%}
+{%block content%}
+
+    {% render_table table %}
+
+    <a class="btn btn-primary pull-right" href="{% url 'content_create' %}">Create Content</a>
+{%endblock%}

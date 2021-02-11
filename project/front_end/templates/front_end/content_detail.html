@@ -1,0 +1,23 @@
+{% extends 'front_end/base.html' %}
+{% load thumbnail %}
+
+{% block container %}
+
+<div class="row" style="margin-top: 10px">
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <img src="{% thumbnail content.image|default:'default_profile.png' 140x140 crop %}"  style="height: 200px; width: 200px" class="card-img-top rounded mx-auto d-block" alt="100X140">
+
+                <h3 class="text-center">{{object.title}}</h3>
+
+                {{object.text | safe}}
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+{% endblock container %}

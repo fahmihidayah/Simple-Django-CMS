@@ -1,0 +1,32 @@
+{% extends 'front_end/base.html' %}
+{% load thumbnail %}
+
+{% block container %}
+
+
+<div class="row" style="margin-top: 10px: margin-bottom: 10px; margin-right: 2px; margin-left: 2px">
+    {% for content in contents %}
+    <div class="col-md-3 col-sm-6" style="margin-top: 10px">
+        <div class="card">
+            <img src="{% thumbnail content.image|default:'default_profile.png' 140x140 crop %}" style="margin: 5px"
+                 class="img-thumbnail" alt="140X140">
+            <div class="card-body">
+                <h5 class="card-title">{{ content.title }}</h5>
+                <p class="card-text">
+                    <small>{{content.created|date:"M d, Y"}}</small>
+                    <small class="pull-right">by : {{ content.user.username }}</small>
+                </p>
+
+                 <a href="{% url 'content_detail_view' content.slug %}" class="btn btn-sm btn-primary btn-block" style="margin-bottom:5px">Baca</a>
+
+
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+
+{% endblock container %}
